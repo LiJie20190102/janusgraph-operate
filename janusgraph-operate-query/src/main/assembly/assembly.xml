@@ -1,0 +1,57 @@
+<!--
+  ~ Copyright (c) 2022. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  ~ Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
+  ~ Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
+  ~ Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
+  ~ Vestibulum commodo. Ut rhoncus gravida arcu.
+  -->
+
+<assembly>
+  <id>${project.version}</id><!--名字  会附加在版本后面-->
+  <formats>
+    <!--打包格式，有zip、tar、tar.gz、jar、war等-->
+    <format>tar.gz</format>
+  </formats>
+  <!--如果为false，不会额外产生根目录，否则，在打好的包中会产生以pom.xml中artifactId和version命名的根目录-->
+  <includeBaseDirectory>true</includeBaseDirectory>
+  <fileSets>
+
+    <fileSet>
+      <directory>target/classes/bin</directory>
+      <outputDirectory>bin</outputDirectory>
+      <fileMode>0755</fileMode>
+    </fileSet>
+
+
+    <fileSet>
+      <directory>target/lib</directory>
+      <outputDirectory>jars</outputDirectory>
+    </fileSet>
+
+    <fileSet>
+      <directory>target</directory>
+      <excludes>
+        <exclude>**/*</exclude>
+      </excludes>
+      <outputDirectory>log</outputDirectory>
+    </fileSet>
+  </fileSets>
+  <files>
+    <file>
+      <source>target/classes/log4j.properties</source>
+      <outputDirectory>conf</outputDirectory>
+    </file>
+    <file>
+      <source>target/classes/config.properties</source>
+      <outputDirectory>conf</outputDirectory>
+    </file>
+    <file>
+      <source>target/classes/service-env.sh</source>
+      <outputDirectory>bin</outputDirectory>
+    </file>
+    <file>
+      <source>target/janusgraph-operate-query.jar</source>
+      <outputDirectory/>
+    </file>
+  </files>
+</assembly>

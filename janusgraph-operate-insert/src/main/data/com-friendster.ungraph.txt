@@ -1,0 +1,11 @@
+# Undirected graph: ../../data/output/friendster.txt
+# Friendster
+# Nodes: 65608366 Edges: 1806067135
+# FromNodeId	ToNodeId
+101	104
+101	102
+101	107
+101	125
+101	165
+101	168
+
