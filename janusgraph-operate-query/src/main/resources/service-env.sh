@@ -17,6 +17,11 @@ LOG_FILE=janusgraph-operate.log
 
 SERVICE_LOG_DIR=${SERVICE_HOME}/log
 
+if [ ! -d "$SERVICE_LOG_DIR" ]; then
+    # 目录不存在，创建它
+    mkdir -p "$SERVICE_LOG_DIR"
+fi
+
 MAIN_JAR="${SERVICE_HOME}/janusgraph-operate-query.jar"
 
 MAIN_CLASS="com.qsdi.bigdata.janusgaph.ops.query.QueryData"
