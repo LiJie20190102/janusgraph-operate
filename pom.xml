@@ -5,14 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.qsdi</groupId>
-    <artifactId>janusgraph-operate</artifactId>
+    <artifactId>graph-operate</artifactId>
     <version>1.0</version>
     <packaging>pom</packaging>
     <modules>
-        <module>janusgraph-operate-insert</module>
-        <module>janusgraph-operate-query</module>
-        <module>janusgraph-operate-traversal-query</module>
-        <module>janusgraph-operate-common</module>
+        <module>graph-operate-insert-janusgraph</module>
+        <module>graph-operate-query</module>
+        <module>graph-operate-traversal-query</module>
+        <module>graph-operate-common</module>
+        <module>graph-operate-insert-gstore</module>
     </modules>
 
     <properties>
@@ -21,8 +22,12 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <relation-janusgraph.version>1.3.0-DEV</relation-janusgraph.version>
         <janusgraph.version>1.0.0-develop</janusgraph.version>
+        <gstore.client.version>1.3.1-DEV</gstore.client.version>
         <guava.version>27.0-jre</guava.version>
         <lang3.version>3.7</lang3.version>
+        <kafka.version>2.8.2</kafka.version>
+        <hutool.version>5.3.6</hutool.version>
+
 
     </properties>
 
@@ -34,11 +39,37 @@
             <artifactId>ipbd-multi-graph-janusgraph-client</artifactId>
             <version>${relation-janusgraph.version}</version>
         </dependency>
+
+            <dependency>
+                <groupId>com.qsdi</groupId>
+                <artifactId>ipbd-multi-graph-gstore-client</artifactId>
+                <version>${gstore.client.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.qsdi</groupId>
+                <artifactId>ipbd-multi-graph-gstore-impl</artifactId>
+                <version>${gstore.client.version}</version>
+            </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>${guava.version}</version>
         </dependency>
+
+            <!--        kafka client-->
+            <dependency>
+                <groupId>org.apache.kafka</groupId>
+                <artifactId>kafka-clients</artifactId>
+                <version>${kafka.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
